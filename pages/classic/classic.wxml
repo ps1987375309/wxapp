@@ -1,0 +1,23 @@
+<!--pages/classic/classic.wxml-->
+
+
+<view class="container">
+  <view class="header">
+    <v-episode class="episode" index="{{classicData.index}}" />
+    <!-- 下方bindClickLike是自定义事件ClickLike，在like组件index.js中 -->
+    <view class="like-container">
+      <v-like class="like" bindClickLike="onClickLike" like="{{likeStatus}}" count="{{likeCount}}" />
+      <v-button class="share-btn" open-type="share">
+        <image class="share" slot="img" src="/images/icon/share.png" />
+      </v-button>
+    </view>
+  </view>
+
+  <v-movie hidden="{{classicData.type!=100}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+  <v-music wx:if="{{classicData.type==200}}" img="{{classicData.image}}" content="{{classicData.content}}"
+    src="{{classicData.url}}" title="{{classicData.title}}" />
+  <v-essay hidden="{{classicData.type!=300}}" img="{{classicData.image}}" content="{{classicData.content}}" />
+  <!-- 下方bindPrev,bindNext是自定义事件，在navi组件index.js中 -->
+  <v-navi bindPrev="onPrev" bindNext="onNext" class="navi" title="{{classicData.title}}" first="{{first}}"
+    latest="{{latest}}" />
+</view>
