@@ -1,0 +1,6 @@
+<view bindtap="onTap" class="container tag-class">
+  <text>{{text}}</text>
+  <!-- <text>{{num}}</text> -->
+  <!-- slot为插槽 -->
+  <slot name="after"></slot>
+</view>
